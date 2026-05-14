@@ -13,7 +13,7 @@ export default function HomeNavbar() {
       <label htmlFor="navbar-1-toggle" className="btn btn-ghost lg:hidden">
         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
       </label>
-      <Image src={npam} alt='This is a nmpa company logo' width={100} height={30} className='rounded-4xl'/>
+      <Image src={npam} alt='This is a nmpa company logo' width={100} height={30}/>
     </div>
     <div className="navbar-middle hidden lg:flex border-4 justify-between w-2xl">
       
