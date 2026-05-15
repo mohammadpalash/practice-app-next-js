@@ -1,9 +1,15 @@
 "use client";
 
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import gsap from "gsap";
 
-export default function TextAnimation() {
+
+
+export default function TextAnimation({
+  children,
+}: {
+  children: React.ReactNode;
+})   {
   useEffect(() => {
     gsap.from(".word", {
       y: 100,
@@ -15,9 +21,7 @@ export default function TextAnimation() {
 
   return (
     <h1 className="text-5xl font-bold flex gap-3">
-      <span className="word">Modern</span>
-      <span className="word">Next.js</span>
-      <span className="word">Website</span>
+      {children}
     </h1>
   );
 }

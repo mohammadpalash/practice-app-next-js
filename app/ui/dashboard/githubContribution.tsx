@@ -1,5 +1,6 @@
 'use client'
 import dynamic from "next/dynamic";
+import { Suspense } from "react";
 // import {GitHubCalendar} from "react-github-calendar";
 
 const GitHubCalendar = dynamic(
@@ -10,12 +11,15 @@ const GithubContributions = () => {
   return (
     <div className="bg-white p-6 rounded-xl shadow">
       <h2 className="text-2xl font-bold mb-4">GitHub Contributions</h2>
+      <Suspense fallback={<p className="text-9xl">Please wait...</p>}>
+        
       <GitHubCalendar
         username="mohammadpalash"
         blockSize={14}
         blockMargin={5}
         fontSize={14}
       />
+      </Suspense>
     </div>
   );
 };

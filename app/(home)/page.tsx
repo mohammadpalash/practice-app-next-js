@@ -5,6 +5,9 @@ import GithubContributions from "../ui/dashboard/githubContribution";
 // import Gsap from "@/components/gsap";
 import Section from "@/components/animation/gsap";
 import TextAnimation from "@/components/animation/textAnimation";
+import LandingPage from "@/components/landingpage";
+import { Suspense } from "react";
+import Loader from "@/components/loader";
 
 
 // import Popup from "@/library/popup";
@@ -15,10 +18,19 @@ import TextAnimation from "@/components/animation/textAnimation";
 export default function Home() {
   return (
     <div >
+      {/* <LandingPage/> */}
       <main >
-        <TextAnimation/>
-        <Section/>              
+        <TextAnimation>
+          <span className="word">My name is Nur</span>
+          <span className="word">My name is mohammad</span>
+          <span className="word">My name is Palash</span>
+        </TextAnimation>
+        <Section/>
+        
+        
+          
         <GithubContributions />
+        
         
         <Image
           className="dark:invert"

@@ -1,5 +1,5 @@
 import React from 'react'
-import HomeNavbar from '../helper/homeNavbar'
+// import HomeNavbar from '../helper/homeNavbar'
 
 export default function HomeRootlayout({
   children,
@@ -8,7 +8,7 @@ export default function HomeRootlayout({
 }>) {
   return (
     <>
-    <HomeNavbar/>
+    {/* <HomeNavbar/> */}
     <main>{children}</main>
     <h1 className='text-7xl'>This is footer</h1>
     </>
