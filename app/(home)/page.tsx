@@ -2,6 +2,9 @@
 import Image from "next/image";
 import { HoverCard } from "../ui/dashboard/3dimages";
 import GithubContributions from "../ui/dashboard/githubContribution";
+// import Gsap from "@/components/gsap";
+import Section from "@/components/animation/gsap";
+import TextAnimation from "@/components/animation/textAnimation";
 
 
 // import Popup from "@/library/popup";
@@ -13,7 +16,8 @@ export default function Home() {
   return (
     <div >
       <main >
-               
+        <TextAnimation/>
+        <Section/>              
         <GithubContributions />
         
         <Image
