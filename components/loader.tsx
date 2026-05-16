@@ -2,6 +2,9 @@
 
 import { useEffect, useState } from "react";
 import gsap from "gsap";
+import DrawN from "./drawN";
+
+
 
 export default function Loader({ children, }: {
     children: React.ReactNode;
@@ -29,9 +32,10 @@ export default function Loader({ children, }: {
   if (loading) {
     return (
       <div className="loader fixed inset-0 bg-black flex items-center justify-center z-9999">
-        <h1 className="loader-text text-white text-5xl font-black tracking-widest">
+        {/* <h1 className="loader-text text-white text-5xl font-black tracking-widest">
           PLEASE WAIT...
-        </h1>
+        </h1> */}
+        <DrawN/>
       </div>
     );
   }

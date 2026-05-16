@@ -1,0 +1,87 @@
+.drawN {
+  width: 60px;
+  height: 80px;
+  position: relative;
+  
+  /* N অক্ষরের শুরুর কালার (যেমন: গাঢ় নীল) */
+  background-color: #2c3e50;
+  
+  /* N অক্ষরের শেপ (clip-path) */
+  clip-path: polygon(
+    0% 0%, 20% 0%, 80% 75%, 80% 0%, 100% 0%, 
+    100% 100%, 80% 100%, 20% 25%, 20% 100%, 0% 100%
+  );
+  
+  /* প্রথম অ্যানিমেশন: লেখা সম্পূর্ণ হওয়া (২ সেকেন্ড) */
+  animation: write-n 2s ease-in-out forwards;
+}
+
+/* ::after দিয়ে ফিল কালারের প্রভাব তৈরি করা */
+.drawN::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  /* ফিল কালার (যেমন: লাল) */
+  background-image: linear-gradient(to right bottom, #ff4757, #ff4757);
+  background-repeat: no-repeat;
+  
+  /* শুরুতে ফিল কালারটি অদৃশ্য থাকবে (বাম-নিচে সাইজ 0, অবস্থান 0% 100%) */
+  background-size: 0% 0%;
+  background-position: 0% 100%;
+  
+  /* ফিল অ্যানিমেশন সিকোয়েন্স (২ সেকেন্ড লেখার পর শুরু হবে) */
+  animation: fill-unfill-sequence 4s ease-in-out 2s forwards ;
+}
+
+
+
+
+/* ১. লেখার অ্যানিমেশন (আগের মতোই) */
+@keyframes write-n {
+  0% {
+    clip-path: polygon(0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 100%, 0% 100%, 0% 100%, 0% 100%, 0% 100%);
+    opacity: 0%;
+  }
+  100% {
+    clip-path: polygon(0% 0%, 20% 0%, 80% 75%, 80% 0%, 100% 0%, 100% 100%, 80% 100%, 20% 25%, 20% 100%, 0% 100%);
+    opacity: 100%;
+  }
+  
+}
+
+
+/* ২. ফিল কালার আসা এবং যাওয়ার সিকোয়েন্স */
+@keyframes fill-unfill-sequence {
+  /* ০-৫০%: ফিল কালার বাম-নিচ থেকে আসবে */
+  0% {
+    background-size: 0% 0%;
+    background-position: 0% 100%;
+    background-image: linear-gradient(to top right, #ff4757, #ff4757); /* বাম-নিচ থেকে ডানে-উপরে ফিল */
+    opacity: 100%
+  }
+  
+  50% {
+    background-size: 100% 100%;
+    background-position: 0% 0%;
+    background-image: linear-gradient(to top right, #ff4757, #ff4757); /* ১০০% ফিল সম্পূর্ণ */
+  }
+  
+  /* ৫১%: মোমেন্টারি পজ এবং ফিল সরানোর নতুন অ্যাঙ্গেল সেট করা */
+  51% {
+    background-size: 100% 100%;
+    background-position: 100% 0%; /* ডানে-উপরে পজিশন */
+    background-image: linear-gradient(to right bottom, #ff4757, #ff4757); /* ডানে-উপর থেকে সরে যাবে */
+  }
+  
+  /* ৫১-১০০%: ফিল কালার ডানে-উপর থেকে সরে যাবে */
+  100% {
+    background-size: 100% 100%;
+    background-position: 100% 100%; /* ডানে-উপরে সাইজ 0 হয়ে যাবে */
+    background-image: linear-gradient(to right bottom, #ff4757, #ff4757);
+    opacity: 40%
+  }
+}
